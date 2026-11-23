@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="description" content="LEVEL UP GEARS — gadgets, car accessories, gifts and everyday finds.">
+<title>LEVEL UP GEARS | Shop the Upgrade</title>
+<style>
+:root{--bg:#090909;--panel:#141414;--line:#292929;--muted:#aaa;--white:#fff;--soft:#e8e8e8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Arial,sans-serif}
+a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}
+.wrap{width:min(1160px,92%);margin:auto}.topbar{border-bottom:1px solid var(--line);padding:12px 0;color:#cfcfcf;font-size:12px;text-align:center;letter-spacing:.12em}
+header{position:sticky;top:0;z-index:10;background:#090909ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;letter-spacing:.12em;font-size:18px}.brand span{display:block;font-size:9px;letter-spacing:.35em;color:#aaa;margin-top:4px}
+nav{display:flex;gap:22px;font-size:13px;color:#ddd}nav a:hover,.muted-link:hover{color:#fff;text-decoration:underline}
+.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:8px 11px;border-radius:8px}
+.hero{padding:78px 0 64px;background:radial-gradient(ellipse at 80% 15%,#292929 0,transparent 45%),linear-gradient(120deg,#090909,#111)}
+.eyebrow{font-size:11px;letter-spacing:.28em;color:#bbb;text-transform:uppercase}.hero h1{font-size:clamp(42px,8vw,86px);line-height:.96;letter-spacing:-.055em;margin:18px 0;max-width:800px}.hero h1 em{font-style:normal;color:#aaa}.hero p{max-width:540px;color:#bdbdbd;line-height:1.7;font-size:15px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{border:1px solid white;padding:13px 19px;border-radius:3px;display:inline-flex;justify-content:center;align-items:center;font-weight:750;font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}.btn.primary{background:white;color:#080808}.btn.secondary{background:transparent;color:white;border-color:#555}.btn:hover{transform:translateY(-1px);opacity:.88}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:50px}.trust div{padding:18px 12px;text-align:center;border-right:1px solid var(--line);font-size:11px;letter-spacing:.1em;color:#ccc}.trust div:last-child{border:0}
+section{padding:64px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}.section-head h2{font-size:clamp(27px,4vw,42px);letter-spacing:-.04em;margin:8px 0 0}.section-head p{color:var(--muted);font-size:13px;margin:0}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 24px}.filter{background:#111;border:1px solid #333;color:#ddd;border-radius:30px;padding:9px 14px;font-size:12px;cursor:pointer}.filter.active,.filter:hover{background:white;color:#080808;border-color:white}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.product{background:var(--panel);border:1px solid var(--line);min-width:0}.product-art{height:190px;display:grid;place-items:center;background:linear-gradient(145deg,#202020,#101010);font-size:54px;color:#eee}.product-info{padding:15px}.tag{font-size:9px;color:#aaa;letter-spacing:.15em;text-transform:uppercase}.product h3{font-size:15px;margin:8px 0}.product p{font-size:12px;color:#aaa;line-height:1.5;min-height:36px}.price{font-weight:800;font-size:16px;margin:12px 0}.product .btn{width:100%;padding:11px;font-size:10px}
+.note{border:1px dashed #444;color:#aaa;padding:14px;font-size:12px;line-height:1.6;margin-top:20px}
+.order-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:start}.order-copy{position:sticky;top:110px}.order-copy h2{font-size:42px;line-height:1.02;letter-spacing:-.05em}.order-copy p{color:#aaa;line-height:1.7;font-size:14px}.form{background:#121212;border:1px solid var(--line);padding:24px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:11px;color:#ccc;letter-spacing:.08em;text-transform:uppercase}.field input,.field select,.field textarea{width:100%;background:#090909;border:1px solid #383838;color:white;padding:13px;border-radius:2px;outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:white}.field textarea{min-height:90px;resize:vertical}.hint{color:#888;font-size:11px;line-height:1.5}.form .btn{width:100%;margin-top:17px}.status{font-size:12px;color:#ddd;margin-top:12px;line-height:1.5}
+.about{background:#111;border-block:1px solid var(--line)}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}.about h2{font-size:36px;letter-spacing:-.04em;margin:8px 0}.about p{color:#aaa;line-height:1.8;font-size:14px}.contact-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+footer{padding:28px 0;color:#888;font-size:11px;border-top:1px solid var(--line)}.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.order-layout{grid-template-columns:1fr}.order-copy{position:static}.about-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.nav{height:62px}nav{display:none;position:absolute;top:62px;left:0;right:0;background:#090909;padding:18px 4%;border-bottom:1px solid var(--line);flex-direction:column}.nav.open nav{display:flex}.menu{display:block}.hero{padding:58px 0 42px}.trust div{font-size:9px;padding:14px 5px}.grid{gap:9px}.product-art{height:145px;font-size:42px}.product-info{padding:11px}.product h3{font-size:13px}.product p{font-size:11px}.form{padding:16px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}section{padding:48px 0}.section-head{display:block}.section-head p{margin-top:9px}}
+</style>
+</head>
+<body>
+<div class="topbar">GOOD FINDS. SMART UPGRADES. EVERYDAY VALUE.</div>
+<header><div class="wrap nav" id="nav">
+<a class="brand" href="#">LEVEL UP GEARS<span>UPGRADE YOUR EVERYDAY</span></a>
+<nav><a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#order">HOW TO ORDER</a><a href="#contact">CONTACT</a></nav>
+<button class="menu" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Toggle menu">☰</button>
+</div></header>
+<main>
+<section class="hero"><div class="wrap">
+<div class="eyebrow">Curated finds • Everyday upgrades</div>
+<h1>FIND YOUR NEXT <em>FAVOURITE.</em></h1>
+<p>Discover useful gadgets, car accessories, thoughtful gifts and trending finds — picked to add a little more to your everyday.</p>
+<div class="actions"><a class="btn primary" href="#shop">Explore products ↗</a><a class="btn secondary" href="#order">Place an order</a></div>
+<div class="trust"><div>CAREFULLY CURATED FINDS</div><div>ORDER DIRECTLY WITH US</div><div>SUPPORT ON WHATSAPP</div></div>
+</div></section>
+<section id="shop"><div class="wrap">
+<div class="section-head"><div><div class="eyebrow">The collection</div><h2>Shop the upgrades.</h2></div><p>Choose a category and find something useful.</p></div>
+<div class="filters" id="filters"></div><div class="grid" id="products"></div>
+<div class="note">Product catalogue starter template: replace the sample product names, prices, descriptions and icons in the <b>PRODUCTS</b> list inside index.html before publishing. Do not accept orders for items you cannot supply.</div>
+</div></section>
+<section id="order" class="about"><div class="wrap order-layout">
+<div class="order-copy"><div class="eyebrow">Easy checkout</div><h2>Ready to level up?</h2><p>Tell us what you want and where to deliver it. Your order details will open in WhatsApp so you can confirm availability, delivery charges and payment with us.</p><p><b>Payment:</b> UPI or Cash on Delivery only when confirmed and available. Never send payment to an unverified number.</p></div>
+<form class="form" id="orderForm">
+<div class="form-grid">
+<div class="field full"><label for="item">Product / item</label><select id="item" required><option value="">Choose a product</option></select></div>
+<div class="field"><label for="qty">Quantity</label><input id="qty" type="number" min="1" max="20" value="1" required></div>
+<div class="field"><label for="name">Full name</label><input id="name" autocomplete="name" required placeholder="Your name"></div>
+<div class="field"><label for="phone">Mobile number</label><input id="phone" type="tel" autocomplete="tel" required placeholder="10-digit number" pattern="[0-9+\s-]{10,15}"></div>
+<div class="field"><label for="email">Email (optional)</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+<div class="field full"><label for="address">Full delivery address</label><textarea id="address" autocomplete="street-address" required placeholder="House/flat, street, area, city, state, PIN code"></textarea></div>
+<div class="field"><label for="payment">Payment preference</label><select id="payment"><option>UPI (confirm details on WhatsApp)</option><option>Cash on Delivery (if available)</option><option>Discuss with seller</option></select></div>
+<div class="field"><label for="notes">Extra notes (optional)</label><input id="notes" placeholder="Colour, model, etc."></div>
+</div>
+<p class="hint">By continuing, WhatsApp opens with your order message. You must press Send in WhatsApp to submit it. Your details are not stored by this website.</p>
+<button class="btn primary" type="submit">Continue to WhatsApp ↗</button><div class="status" id="status" role="status"></div>
+</form>
+</div></section>
+<section id="about"><div class="wrap about-grid"><div><div class="eyebrow">Our vibe</div><h2>Small finds. Big upgrade.</h2></div><div><p>LEVEL UP GEARS is a place for practical gadgets, car accessories, gifts, home essentials and interesting trending products. We aim to make discovering your next useful find simple.</p><p>We confirm stock, final price, delivery timeline and payment method with you before an order is accepted.</p></div></div></section>
+<section id="contact"><div class="wrap"><div class="eyebrow">Need help?</div><div class="section-head"><h2>Let's talk.</h2><p>Questions about a product or an order? Message us.</p></div><div class="contact-row"><a class="btn primary" id="contactWhatsApp" href="#" target="_blank" rel="noopener">Chat on WhatsApp ↗</a><a class="btn secondary" href="#order">Order form</a></div></div></section>
+</main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> LEVEL UP GEARS. All rights reserved.</span><span>Independent seller • Product availability subject to confirmation</span></div></footer>
+<script>
+// SETUP: Replace this with your WhatsApp number including country code, digits only.
+// Example for India: 919876543210 (do not include +, spaces or dashes).
+const WHATSAPP_NUMBER = "91XXXXXXXXXX";
+
+// Replace these starter examples with your real products and prices.
+// Use a price you can actually honour; mention shipping separately if applicable.
+const PRODUCTS = [
+ {name:"Everyday Gadget",category:"Gadgets",price:"₹___",description:"Add your real product description here.",icon:"⌁"},
+ {name:"Car Accessory",category:"Car accessories",price:"₹___",description:"Add model compatibility and product details.",icon:"✦"},
+ {name:"Gift Pick",category:"Gift items",price:"₹___",description:"Add size, colour and gift details.",icon:"◇"},
+ {name:"Trending Find",category:"Trending products",price:"₹___",description:"Describe what makes this item useful.",icon:"✧"},
+ {name:"Home Essential",category:"Home accessories",price:"₹___",description:"Add dimensions and material details.",icon:"▦"}
+];
+const categories=["All products",...new Set(PRODUCTS.map(p=>p.category))];
+let activeCategory="All products";
+const productsEl=document.getElementById("products"), filtersEl=document.getElementById("filters"), itemEl=document.getElementById("item");
+function render(){
+ filtersEl.innerHTML="";
+ categories.forEach(c=>{const b=document.createElement("button");b.className="filter"+(c===activeCategory?" active":"");b.textContent=c;b.onclick=()=>{activeCategory=c;render()};filtersEl.appendChild(b)});
+ productsEl.innerHTML="";
+ PRODUCTS.filter(p=>activeCategory==="All products"||p.category===activeCategory).forEach(p=>{
+  const card=document.createElement("article");card.className="product";
+  card.innerHTML=`<div class="product-art" aria-hidden="true">${p.icon}</div><div class="product-info"><div class="tag">${p.category}</div><h3>${p.name}</h3><p>${p.description}</p><div class="price">${p.price}</div><button class="btn secondary" type="button">Enquire / order</button></div>`;
+  card.querySelector("button").onclick=()=>{itemEl.value=p.name;document.getElementById("order").scrollIntoView({behavior:"smooth"})};
+  productsEl.appendChild(card);
+ });
+ itemEl.innerHTML='<option value="">Choose a product</option>'+PRODUCTS.map(p=>`<option>${p.name}</option>`).join("");
+}
+document.getElementById("orderForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ if(!/^91\d{10}$/.test(WHATSAPP_NUMBER)){document.getElementById("status").textContent="Website setup needed: add your 12-digit WhatsApp number (91 + 10 digits) in the code, then publish again.";return}
+ const v=id=>document.getElementById(id).value.trim();
+ const msg=`LEVEL UP GEARS — NEW ORDER\n\nProduct: ${v("item")}\nQuantity: ${v("qty")}\nName: ${v("name")}\nMobile: ${v("phone")}\nEmail: ${v("email")||"Not provided"}\nDelivery address: ${v("address")}\nPayment preference: ${v("payment")}\nExtra notes: ${v("notes")||"None"}\n\nPlease confirm stock, final price, shipping and delivery time.`;
+ document.getElementById("status").textContent="Opening WhatsApp… Review the message and press Send to place your order.";
+ window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank","noopener");
+});
+document.getElementById("contactWhatsApp").addEventListener("click",e=>{
+ if(!/^91\d{10}$/.test(WHATSAPP_NUMBER)){e.preventDefault();alert("Add your WhatsApp number in the website code before publishing.");}
+});
+document.getElementById("year").textContent=new Date().getFullYear();
+render();
+</script>
+</body></html>
