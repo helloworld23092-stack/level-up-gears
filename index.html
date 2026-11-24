@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="description" content="LEVEL UP GEARS – gadgets, car accessories, gifts and everyday finds.">
+<title>LEVEL UP GEARS | Shop the Upgrade</title>
+<style>
+:root{--bg:#090909;--panel:#141414;--line:#292929;--muted:#aaa;--white:#fff;--soft:#e8e8e8}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;max-width:100%;min-width:0}
+img{max-width:100%;height:auto;display:block}
+.wrap{width:min(1160px,92%);margin:auto}
+
+/* top bar + header */
+.topbar{border-bottom:1px solid var(--line);padding:12px 0;color:#cfcfcf;font-size:11px;letter-spacing:.2em;text-align:center;text-transform:uppercase}
+header{position:sticky;top:0;z-index:10;background:#090909ed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-weight:900;letter-spacing:.18em;font-size:15px;display:flex;flex-direction:column;line-height:1.3}
+.brand span{font-size:8px;letter-spacing:.3em;color:var(--muted);font-weight:600}
+nav{display:flex;gap:22px;font-size:13px;color:#ddd}
+nav a:hover,.muted-link:hover{color:#fff;text-decoration:underline}
+.menu{display:none;background:none;border:1px solid var(--line);color:#fff;padding:8px 12px;border-radius:8px;font-size:18px;cursor:pointer}
+
+/* hero */
+.hero{padding:78px 0 64px;background:radial-gradient(ellipse at 80% 15%,#292929 0,transparent 45%),linear-gradient(120deg,#111,#090909)}
+.eyebrow{font-size:11px;letter-spacing:.28em;color:#bbb;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:clamp(40px,8vw,86px);line-height:.95;margin:0 0 22px;letter-spacing:-.04em;font-weight:900;overflow-wrap:break-word}
+.hero h1 em{font-style:normal;color:#999}
+.hero p{max-width:560px;color:#ccc;font-size:16px;margin:0}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-block;padding:13px 19px;border:1px solid #fff;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:transparent;color:#fff;border-radius:3px}
+.btn.primary{background:#fff;color:#000}
+.btn.secondary{border-color:#444}
+.btn:hover{opacity:.85}
+.trust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:48px}
+.trust div{padding:18px 12px;text-align:center;font-size:10px;letter-spacing:.16em;color:#bbb;text-transform:uppercase}
+.trust div+div{border-left:1px solid var(--line)}
+
+/* sections */
+section{padding:64px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.section-head h2{font-size:clamp(26px,5vw,38px);margin:0;letter-spacing:-.03em}
+.section-head p{margin:0;color:var(--muted);font-size:13px}
+
+/* filters + grid */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 24px}
+.filter{background:#111;border:1px solid #333;color:#ddd;padding:8px 14px;border-radius:999px;font-size:12px;cursor:pointer}
+.filter.active{background:#fff;color:#000;border-color:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.grid>*{min-width:0}
+.product{background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden}
+.product-art{height:190px;display:flex;align-items:center;justify-content:center;font-size:30px;color:#ddd}
+.product-img{width:100%;height:190px;object-fit:contain;background:#fff}
+.product-body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.cat{font-size:9px;letter-spacing:.2em;color:#888;text-transform:uppercase}
+.product h3{margin:0;font-size:14px;line-height:1.3}
+.product p{margin:0;color:#aaa;font-size:11.5px;line-height:1.5;overflow-wrap:anywhere}
+.price{font-size:18px;font-weight:800;margin-top:auto;padding-top:6px}
+.product .btn{width:100%;text-align:center;font-size:10px;padding:11px 8px;margin-top:6px;border-color:#444}
+.note{border:1px dashed #444;color:#aaa;padding:14px;font-size:12px;line-height:1.6;margin-top:20px;overflow-wrap:anywhere}
+
+/* order */
+.order-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:35px;align-items:start}
+.order-layout>*{min-width:0}
+.order-copy{position:sticky;top:110px}
+.order-copy h2{font-size:clamp(26px,5vw,38px);margin:0 0 12px;letter-spacing:-.03em}
+.order-copy p{color:#bbb}
+.form{background:var(--panel);border:1px solid var(--line);padding:22px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.form-grid>*{min-width:0}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#bbb}
+.field input,.field select,.field textarea{width:100%;background:#0c0c0c;color:#fff;border:1px solid #333;padding:12px;font-size:16px;border-radius:3px}
+.field textarea{min-height:80px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid #fff;outline-offset:1px}
+.hint{font-size:12px;color:#999;margin:14px 0}
+.status{margin-top:12px;font-size:13px;color:#ddd}
+
+/* about + contact */
+.about{background:#111;border-block:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:35px;align-items:center}
+.about-grid>*{min-width:0}
+.about h2,.contact h2{font-size:clamp(26px,5vw,38px);margin:0 0 12px;letter-spacing:-.03em}
+.about p,.contact p{color:#bbb;margin:0 0 12px}
+
+/* footer */
+footer{padding:28px 0;color:#888;font-size:11px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* tablet */
+@media(max-width:1000px){
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:850px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .order-layout,.about-grid{grid-template-columns:minmax(0,1fr)}
+  .order-copy{position:static}
+  section{padding:48px 0}
+}
+/* phone */
+@media(max-width:600px){
+  .nav{height:62px;position:relative}
+  .menu{display:block}
+  nav{display:none;position:absolute;top:62px;left:-4%;right:-4%;background:#090909;border-bottom:1px solid var(--line);padding:8px 4%;flex-direction:column;gap:0}
+  nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+  nav a:last-child{border-bottom:0}
+  .nav.open nav{display:flex}
+  .hero{padding:52px 0 40px}
+  .trust{grid-template-columns:minmax(0,1fr)}
+  .trust div+div{border-left:0;border-top:1px solid var(--line)}
+  .form-grid{grid-template-columns:minmax(0,1fr)}
+  .form{padding:16px}
+  .product-art,.product-img{height:150px}
+  footer .wrap{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="topbar">GOOD FINDS. SMART UPGRADES. EVERYDAY VALUE.</div>
+
+<header><div class="wrap nav" id="nav">
+  <a class="brand" href="#">LEVEL UP GEARS<span>UPGRADE YOUR EVERYDAY</span></a>
+  <nav><a href="#shop">SHOP</a><a href="#about">ABOUT</a><a href="#order">HOW TO ORDER</a><a href="#contact">CONTACT</a></nav>
+  <button class="menu" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Toggle menu">&#9776;</button>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Curated finds • Everyday upgrades</div>
+  <h1>FIND YOUR NEXT <em>FAVOURITE.</em></h1>
+  <p>Discover useful gadgets, car accessories, thoughtful gifts and trending finds — picked to add a little more to your everyday.</p>
+  <div class="actions"><a class="btn primary" href="#shop">Explore products ↗</a><a class="btn secondary" href="#order">Place an order</a></div>
+  <div class="trust"><div>CAREFULLY CURATED FINDS</div><div>ORDER DIRECTLY WITH US</div><div>SUPPORT ON WHATSAPP</div></div>
+</div></section>
+
+<section id="shop"><div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">The collection</div><h2>Shop the upgrades.</h2></div><p>Choose a category and find something useful.</p></div>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="products"></div>
+  <div class="note">Product catalogue starter template: replace the sample product names, prices, descriptions and icons in the PRODUCTS list inside index.html before publishing.</div>
+</div></section>
+
+<section id="order" class="about"><div class="wrap order-layout">
+  <div class="order-copy"><div class="eyebrow">Easy checkout</div><h2>Ready to level up?</h2><p>Tell us what you want and where to send it. Your order opens in WhatsApp so we can confirm details and payment with you directly.</p></div>
+  <form class="form" id="orderForm">
+    <div class="form-grid">
+      <div class="field full"><label for="item">Product / item</label><select id="item" required><option value="">Choose a product</option></select></div>
+      <div class="field"><label for="qty">Quantity</label><input id="qty" type="number" min="1" max="20" value="1" required></div>
+      <div class="field"><label for="name">Full name</label><input id="name" autocomplete="name" required placeholder="Your name"></div>
+      <div class="field"><label for="phone">Mobile number</label><input id="phone" type="tel" autocomplete="tel" required placeholder="10-digit mobile number"></div>
+      <div class="field"><label for="email">Email (optional)</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+      <div class="field full"><label for="address">Full delivery address</label><textarea id="address" autocomplete="street-address" required placeholder="House no, street, city, state, PIN"></textarea></div>
+      <div class="field"><label for="payment">Payment preference</label><select id="payment"><option value="UPI">UPI (confirm details on WhatsApp)</option><option value="COD">Cash on delivery</option></select></div>
+      <div class="field"><label for="notes">Extra notes (optional)</label><input id="notes" placeholder="Colour, model, etc."></div>
+    </div>
+    <p class="hint">By continuing, WhatsApp opens with your order message. You must press Send in WhatsApp to submit it. Your order is confirmed only after we reply.</p>
+    <button class="btn primary" type="submit">Continue to WhatsApp ↗</button>
+    <div class="status" id="status" role="status"></div>
+  </form>
+</div></section>
+
+<section id="about" class="about"><div class="wrap about-grid">
+  <div><div class="eyebrow">Our vibe</div><h2>Small finds. Big upgrade.</h2></div>
+  <div><p>We pick useful gadgets, car accessories, gifts and trending products that make everyday life a little easier and a little better.</p><p>No clutter, no confusion — just a simple catalogue and direct support when you order.</p></div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <div class="eyebrow">Need help?</div><h2>Let's talk.</h2>
+  <p>Questions about a product, price or delivery? Message us on WhatsApp.</p>
+  <a class="btn primary" id="contactWhatsApp" href="#" target="_blank" rel="noopener">Chat on WhatsApp ↗</a>
+</div></section>
+</main>
+
+<footer><div class="wrap foot"><span>© <span id="year"></span> LEVEL UP GEARS. All rights reserved.</span><span>Independent seller. Product images are for reference.</span></div></footer>
+
+<script>
+// SETUP: your WhatsApp number with country code, digits only (no +, spaces or dashes).
+const WHATSAPP_NUMBER = "918178794495";
+
+// Your products. Add / edit items here.
+// "images" = list of image files in your repo (optional). Without images, the icon is shown.
+const PRODUCTS = [
+  {name:"VATTU Electric Lighter – Rechargeable Dual Arc",category:"Gadgets",price:"₹379",
+   fullName:"VATTU Electric Lighter Rechargeable USB Dual Arc Plasma Lighter Windproof Flameless for Candle Camping, Stocking Stuffers for Men – by VENEXA",
+   description:"Flameless dual-arc plasma lighter. Windproof, rechargeable via Type-C, with an LED battery display. Slim pocket size, only 52g.",
+   details:[
+     "Dual-arc plasma ignition – windproof and flameless",
+     "Rechargeable via Type-C cable, full charge in 1.5–2 hours",
+     "Charge with a power bank, laptop, wall socket or car charger",
+     "LED display shows battery level: 25% / 50% / 75% / 100%",
+     "Slim pocket size: 2.5 in × 1.5 in × 0.4 in, weighs only 52g (1.83 oz)",
+     "No gas or fuel needed – refill-free and reusable",
+     "Great for candles, camping, incense, grills and everyday use",
+     "A handy gift or stocking stuffer for men"
+   ],
+   specs:[["Brand","VENEXA"],["Model","VATTU Electric Lighter"],["Type","Dual arc plasma, flameless"],["Charging","USB Type-C (1.5–2 hours)"],["Size","2.5 × 1.5 × 0.4 in"],["Weight","52g (1.83 oz)"]],
+   icon:"⚡",
+   images:["ms_ud3hf_512_655470253.jpg","ms_j26or_512_655470253.jpg","ms_xgirp_512_655470253.jpg","ms_ysknu_512_655470253.jpg"]},
+  {name:"Everyday Gadget",category:"Gadgets",price:"₹___",description:"Add your real product description here.",icon:"⚡",images:[]},
+  {name:"Gift Pick",category:"Gift items",price:"₹___",description:"Add size, colour and gift details.",icon:"◇",images:[]},
+  {name:"Trending Find",category:"Trending products",price:"₹___",description:"Describe what makes this item useful.",icon:"✦",images:[]},
+  {name:"Home Essential",category:"Home accessories",price:"₹___",description:"Add dimensions and material details.",icon:"▦",images:[]}
+];
+
+const categories = ["All products", ...new Set(PRODUCTS.map(p => p.category))];
+let activeCategory = "All products";
+const productsEl = document.getElementById("products");
+const filtersEl  = document.getElementById("filters");
+const itemEl     = document.getElementById("item");
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+function render(){
+  filtersEl.innerHTML = "";
+  categories.forEach(c=>{
+    const b = document.createElement("button");
+    b.className = "filter" + (c===activeCategory ? " active" : "");
+    b.textContent = c;
+    b.onclick = ()=>{activeCategory=c;render();};
+    filtersEl.appendChild(b);
+  });
+
+  productsEl.innerHTML = "";
+  PRODUCTS.filter(p => activeCategory==="All products" || p.category===activeCategory).forEach(p=>{
+    const card = document.createElement("article");
+    card.className = "product";
+    const img = p.images && p.images.length
+      ? `<img class="product-img" src="${esc(p.images[0])}" alt="${esc(p.name)}" loading="lazy">`
+      : `<div class="product-art" aria-hidden="true">${p.icon||"•"}</div>`;
+    card.innerHTML = `${img}<div class="product-body"><div class="cat">${esc(p.category)}</div><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p><div class="price">${esc(p.price)}</div><button class="btn" type="button">Enquire / Order</button></div>`;
+    card.querySelector("button").onclick = ()=>{itemEl.value=p.name;document.getElementById("order").scrollIntoView({behavior:"smooth"});};
+    card.style.cursor = "pointer";
+    card.addEventListener("click",ev=>{if(ev.target.closest("button"))return;openDetail(p);});
+    productsEl.appendChild(card);
+  });
+
+  itemEl.innerHTML = '<option value="">Choose a product</option>' + PRODUCTS.map(p=>`<option>${esc(p.name)}</option>`).join("");
+}
+
+function openDetail(p){
+  const imgs = p.images && p.images.length ? p.images : [];
+  const o = document.createElement("div");
+  o.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:100;overflow:auto;padding:16px";
+  o.innerHTML = `<div style="max-width:560px;margin:auto;color:#fff">
+    <button id="xClose" style="float:right;font-size:28px;background:none;border:0;color:#fff;cursor:pointer" aria-label="Close">×</button>
+    ${imgs.length ? `<img id="bigImg" src="${esc(imgs[0])}" alt="${esc(p.name)}" style="width:100%;max-height:60vh;object-fit:contain;background:#fff;clear:both">
+    <div style="display:flex;gap:8px;margin:10px 0;overflow-x:auto">${imgs.map(s=>`<img class="th" src="${esc(s)}" alt="" style="width:64px;height:64px;object-fit:cover;background:#fff;cursor:pointer;flex:none">`).join("")}</div>` : ""}
+    <div style="font-size:11px;letter-spacing:.2em;color:#aaa;text-transform:uppercase">${esc(p.category)}</div>
+    <h2 style="margin:6px 0;font-size:20px;line-height:1.3">${esc(p.fullName||p.name)}</h2>
+    <p style="color:#ccc">${esc(p.description)}</p>
+    ${p.details?`<ul style="color:#ddd;padding-left:18px;line-height:1.7;font-size:14px">${p.details.map(d=>`<li>${esc(d)}</li>`).join("")}</ul>`:""}
+    ${p.specs?`<table style="width:100%;border-collapse:collapse;font-size:13px;margin:10px 0">${p.specs.map(r=>`<tr><td style="padding:8px 0;border-top:1px solid #333;color:#999;width:38%">${esc(r[0])}</td><td style="padding:8px 0;border-top:1px solid #333">${esc(r[1])}</td></tr>`).join("")}</table>`:""}
+    <div style="font-size:24px;font-weight:800;margin:10px 0">${esc(p.price)}</div>
+    <button id="oBtn" class="btn primary" type="button" style="width:100%">Order this</button></div>`;
+  document.body.appendChild(o);
+  o.querySelectorAll(".th").forEach(t=>t.onclick=()=>{o.querySelector("#bigImg").src=t.src;});
+  o.querySelector("#xClose").onclick = ()=>o.remove();
+  o.addEventListener("click",e=>{if(e.target===o)o.remove();});
+  o.querySelector("#oBtn").onclick = ()=>{itemEl.value=p.name;o.remove();document.getElementById("order").scrollIntoView({behavior:"smooth"});};
+}
+
+// Close mobile menu after tapping a link
+document.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>document.getElementById("nav").classList.remove("open")));
+
+document.getElementById("orderForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  if(!/^\d{10,15}$/.test(WHATSAPP_NUMBER)){
+    document.getElementById("status").textContent = "Website setup needed: add your 12-digit WhatsApp number in the website code.";
+    return;
+  }
+  const v = id => document.getElementById(id).value.trim();
+  const msg = `LEVEL UP GEARS - NEW ORDER\n\nProduct: ${v("item")}\nQuantity: ${v("qty")}\nName: ${v("name")}\nMobile: ${v("phone")}\nEmail: ${v("email")||"-"}\nAddress: ${v("address")}\nPayment: ${v("payment")}\nNotes: ${v("notes")||"-"}`;
+  document.getElementById("status").textContent = "Opening WhatsApp... Review the message and press Send to place your order.";
+  window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(msg),"_blank","noopener");
+});
+
+document.getElementById("contactWhatsApp").href = "https://wa.me/" + WHATSAPP_NUMBER;
+document.getElementById("contactWhatsApp").addEventListener("click",e=>{
+  if(!/^\d{10,15}$/.test(WHATSAPP_NUMBER)){e.preventDefault();alert("Add your WhatsApp number in the website code before publishing.");}
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+
+render();
+</script>
+</body>
+</html>
