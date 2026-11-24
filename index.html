@@ -112,6 +112,7 @@ document.getElementById("contactWhatsApp").addEventListener("click",e=>{
  if(!/^91\d{10}$/.test(WHATSAPP_NUMBER)){e.preventDefault();alert("Add your WhatsApp number in the website code before publishing.");}
 });
 document.getElementById("year").textContent=new Date().getFullYear();
+ document.getElementById("contactWhatsApp").href="https://wa.me/"+WHATSAPP_NUMBER;
 render();
 </script>
 </body></html>
