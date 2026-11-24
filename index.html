@@ -97,6 +97,7 @@ function render(){
   card.innerHTML=`<div class="product-art" aria-hidden="true">${p.image ? '<img src="'+p.image+'" alt="" style="width:100%;height:100%;object-fit:cover;">' : p.icon}</div><div class="product-info"><div class="tag">${p.category}</div><h3>${p.name}</h3><p>${p.description}</p><div class="price">${p.price}</div><button class="btn secondary" type="button">Enquire / order</button></div>`;
   card.querySelector("button").onclick=()=>{itemEl.value=p.name;document.getElementById("order").scrollIntoView({behavior:"smooth"})};
   productsEl.appendChild(card);
+  card.style.cursor="pointer";card.addEventListener("click",ev=>{if(ev.target.closest("button"))return;openDetail(p);});
  });
  itemEl.innerHTML='<option value="">Choose a product</option>'+PRODUCTS.map(p=>`<option>${p.name}</option>`).join("");
 }
@@ -114,5 +115,6 @@ document.getElementById("contactWhatsApp").addEventListener("click",e=>{
 document.getElementById("year").textContent=new Date().getFullYear();
  document.getElementById("contactWhatsApp").href="https://wa.me/"+WHATSAPP_NUMBER;
 render();
+ function openDetail(p){const o=document.createElement("div");o.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;display:flex;align-items:center;justify-content:center;padding:16px";o.innerHTML='<div style="background:#141414;border:1px solid #292929;max-width:420px;width:100%;max-height:90vh;overflow:auto;padding:16px"><div style="height:260px;background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:48px;margin-bottom:14px">'+(p.image?'<img src="'+p.image+'" alt="" style="width:100%;height:100%;object-fit:contain">':p.icon)+'</div><div style="font-size:11px;letter-spacing:.2em;color:#aaa;text-transform:uppercase">'+p.category+'</div><h3 style="margin:6px 0">'+p.name+'</h3><p style="color:#ccc;line-height:1.5">'+p.description+'</p><p style="font-size:22px;font-weight:700">'+p.price+'</p><button id="dOrder" class="btn primary" style="width:100%;margin-bottom:8px">ORDER THIS</button><button id="dClose" class="btn" style="width:100%;color:#fff;background:none">CLOSE</button></div>';document.body.appendChild(o);o.querySelector("#dClose").onclick=()=>o.remove();o.onclick=ev=>{if(ev.target===o)o.remove()};o.querySelector("#dOrder").onclick=()=>{itemEl.value=p.name;o.remove();document.getElementById("order").scrollIntoView({behavior:"smooth"})};}
 </script>
 </body></html>
