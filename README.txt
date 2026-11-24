@@ -5,7 +5,7 @@ FILES
 
 BEFORE PUBLISHING
 1. Open index.html in a text editor (Notepad is fine).
-2. Find WHATSAPP_NUMBER and replace 91XXXXXXXXXX with your WhatsApp number:
+2. Find WHATSAPP_NUMBER and replace 918178794495 with your WhatsApp number:
    India format: 91 followed by your 10-digit number, digits only.
 3. Find the PRODUCTS array and replace the five starter examples with your real products,
    actual prices, descriptions and icons. Keep the JavaScript object format.
